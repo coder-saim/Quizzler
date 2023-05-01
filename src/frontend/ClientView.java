@@ -1,11 +1,6 @@
 package frontend;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.GridLayout;
-import java.awt.Image;
-import java.awt.Rectangle;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -68,20 +63,43 @@ public class ClientView extends JFrame {
 		public DrawingView() {
 			loginPanel = new JPanel();
 			loginPanel.setBackground(Color.WHITE);
-			loginPanel.setLayout(new GridLayout(0, 1,0,0));
+			loginPanel.setLayout(new GridLayout(3, 2,5,5));
 
 			JTextField ipField = new JTextField();
-			ipField.setLocation(50,50);
-			JTextField usernameField = new JTextField();
-			JButton connectButton = new JButton("Connect");
-			JButton exitButton = new JButton("Cancel");
+			ipField.setFont(new Font("Segoe UI Semilight", Font.PLAIN, 13));
 
-			loginPanel.add(new JLabel("IP Address"));
+
+			JTextField usernameField = new JTextField();
+			usernameField.setFont(new Font("Segoe UI Semilight", Font.PLAIN, 15));
+
+
+			JButton connectButton = new JButton("Connect");
+			connectButton.setFont(new Font("Segoe UI Semilight", Font.PLAIN, 15));
+			connectButton.setForeground(new Color(46, 139, 87));
+			connectButton.setBackground(new Color(250, 250, 210));
+
+
+			JButton exitButton = new JButton("Cancel");
+			exitButton.setFont(new Font("Segoe UI Semilight", Font.PLAIN, 15));
+			exitButton.setForeground(new Color(46, 139, 87));
+			exitButton.setBackground(new Color(250, 250, 210));
+
+			JLabel ipAddrs = new JLabel("IP Address");
+			ipAddrs.setFont(new Font("Segoe UI Semilight", Font.PLAIN, 15));
+
+
+
+			JLabel uname = new JLabel("User Name");
+			uname.setFont(new Font("Segoe UI Semilight", Font.PLAIN, 15));
+
+
+			loginPanel.add(ipAddrs);
 			loginPanel.add(ipField);
-			loginPanel.add(new JLabel("Username"));
+			loginPanel.add(uname);
 			loginPanel.add(usernameField);
-			loginPanel.add(connectButton);
 			loginPanel.add(exitButton);
+			loginPanel.add(connectButton);
+
 
 			connectButton.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
@@ -94,24 +112,25 @@ public class ClientView extends JFrame {
 				}
 			});
 			add(loginPanel);
-			
+
 			gamePanel = new JPanel();
-			gamePanel.setBackground(Color.blue);
+			gamePanel.setBackground(Color.white);
 			gamePanel.setLayout(new GridLayout(2, 2, 10, 10));
-			gamePanel.setPreferredSize(new Dimension(400, 300));
-			
+			gamePanel.setPreferredSize(new Dimension(400, 250));
+
+
 			ansA = new JLabel();
 			ansA.setBackground(Color.RED);
-			
+
 			ansB = new JLabel();
 			ansB.setBackground(Color.BLUE);
-			
+
 			ansC = new JLabel();
 			ansC.setBackground(Color.YELLOW);
-			
+
 			ansD = new JLabel();
 			ansD.setBackground(Color.ORANGE);
-			
+
 			for (JLabel lbl : new JLabel[]{ ansA, ansB, ansC, ansD }) {
 				lbl.setBorder(new EmptyBorder(10, 10, 10, 10));
 				lbl.setOpaque(true);
@@ -119,7 +138,7 @@ public class ClientView extends JFrame {
 				gamePanel.add(lbl);
 			}
 			add(gamePanel);
-			gamePanel.setLocation(50, 100);
+			gamePanel.setLocation(150, 100);
 			gamePanel.setVisible(false);
 
 			addMouseListener(this);
@@ -168,15 +187,15 @@ public class ClientView extends JFrame {
 			// if game is over, offer a back button
 			case GAME_OVER:
 				gamePanel.setVisible(false);
-				g.drawString("Back to Main", backToMainButton.x + 20, backToMainButton.y + 40);
-				drawRect(g, backToMainButton, false);
+				g.drawString("Back to Main", 300, 80);
+				//drawRect(g, backToMainButton, false);
 				break;
 			// draw answers if server is waiting for them
 			case WAITING_FOR_ANSWERS:
 				if (currentQuestion == null) {
 					break;
 				}
-				gamePanel.setLocation(50, 100);
+				gamePanel.setLocation(150, 100);
 				gamePanel.setVisible(true);
 				g.drawString(currentQuestion.getQ(), 10, 20);
 
@@ -188,39 +207,39 @@ public class ClientView extends JFrame {
 				break;
 			case WAITING_FOR_OTHER_PLAYERS:
 				gamePanel.setVisible(false);
-				g.drawString("Waiting for others to respond...", 40, 80);
+				g.drawString("Waiting for others to respond...", 270, 80);
 				break;
 			// show feedback
 			case WAITING_FOR_NEXT_Q:
 				gamePanel.setVisible(false);
 				if (feedback.answerWasCorrect()) {
-					g.drawString("Correct!", 40, 80);
+					g.drawString("Correct!", 300, 80);
 				} else {
-					g.drawString("Incorrect", 40, 80);
+					g.drawString("Incorrect", 300, 80);
 				}
 				String player = feedback.getPrecedingPlayer();
 				if (player == null) {
-					g.drawString("You're in first place!", 40, 110);
+					g.drawString("You're in first place!", 300, 110);
 				} else {
 					g.drawString("You're in " + posToString(feedback.getPosition()) + " place, "
-							+ feedback.getScoreDelta() + " points behind " + feedback.getPrecedingPlayer(), 40, 110);
+							+ feedback.getScoreDelta() + " points behind " + feedback.getPrecedingPlayer(), 300, 110);
 				}
 				Question q = feedback.getQuestion();
-				g.drawString("Acceptable answers:", 40, 130);
+				g.drawString("Acceptable answers:", 300, 130);
 				int y = 150;
 				int i = 0;
 				for (String answer : q.getAnswers()) {
 					if (q.acceptAnswer(i)) {
-						g.drawString(answer, 60, y);
+						g.drawString(answer, 300, y);
 						y += 30;
 					}
 					i++;
 				}
 				break;
 			case WAITING_FOR_PLAYERS:
-				gamePanel.setLocation(50, 100);
+				gamePanel.setLocation(150, 100);
 				gamePanel.setVisible(true);
-				g.drawString("Waiting for game to start", 10, 20);
+				g.drawString("Waiting for Game to start", 200, 30);
 				break;
 			default:
 				break;

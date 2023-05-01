@@ -81,7 +81,7 @@ public class MainMenu extends JFrame implements ActionListener {
 		btnQuizEditor.setFont(new Font("Segoe UI Semilight", Font.PLAIN, 15));
 		btnQuizEditor.setForeground(new Color(46, 139, 87));
 		btnQuizEditor.setBackground(new Color(250, 250, 210));
-		btnQuizEditor.setBounds(70, 200, 150, 25);
+		btnQuizEditor.setBounds(70, 200, 150, 35);
 		contentPane.add(btnQuizEditor);
 
 
@@ -91,7 +91,7 @@ public class MainMenu extends JFrame implements ActionListener {
 		btnHostGame.setFont(new Font("Segoe UI Semilight", Font.PLAIN, 15));
 		btnHostGame.setForeground(new Color(46, 139, 87));
 		btnHostGame.setBackground(new Color(250, 250, 210));
-		btnHostGame.setBounds(70, 310, 150, 25);
+		btnHostGame.setBounds(70, 310, 150, 35);
 		contentPane.add(btnHostGame);
 
 		btnJoinGame = new JButton("Join Game");
@@ -99,7 +99,7 @@ public class MainMenu extends JFrame implements ActionListener {
 		btnJoinGame.setFont(new Font("Segoe UI Semilight", Font.PLAIN, 15));
 		btnJoinGame.setForeground(new Color(46, 139, 87));
 		btnJoinGame.setBackground(new Color(250, 250, 210));
-		btnJoinGame.setBounds(70, 410, 150, 25);
+		btnJoinGame.setBounds(70, 410, 150, 35);
 		contentPane.add(btnJoinGame);
 
 		btnShowAbout = new JButton("About Quizzler");
@@ -107,7 +107,7 @@ public class MainMenu extends JFrame implements ActionListener {
 		btnShowAbout.setFont(new Font("Segoe UI Semilight", Font.PLAIN, 15));
 		btnShowAbout.setForeground(new Color(46, 139, 87));
 		btnShowAbout.setBackground(new Color(250, 250, 210));
-		btnShowAbout.setBounds(60, 510, 170, 25);
+		btnShowAbout.setBounds(60, 510, 170, 35);
 		contentPane.add(btnShowAbout);
 
 		btnQuit = new JButton("Quit");
@@ -115,7 +115,7 @@ public class MainMenu extends JFrame implements ActionListener {
 		btnQuit.setFont(new Font("Segoe UI Semilight", Font.PLAIN, 15));
 		btnQuit.setForeground(new Color(46, 139, 87));
 		btnQuit.setBackground(new Color(250, 250, 210));
-		btnQuit.setBounds(70, 610, 150, 25);
+		btnQuit.setBounds(70, 610, 150, 35);
 		contentPane.add(btnQuit);
 
 

@@ -121,42 +121,44 @@ public class ServerView extends JFrame implements MessageHandler, ActionListener
 
 	public ServerView() {
 		setTitle("Quizzler: Hosting Game");
-		setBounds(200, 200, 700, 500);
+		setBounds(1000, 200, 700, 500);
 
 		JPanel panel_1 = new JPanel();
 		getContentPane().add(panel_1, BorderLayout.NORTH);
 		panel_1.setLayout(new GridLayout(0, 1, 0, 0));
+		panel_1.setBackground(Color.white);
 
 		lblQuizName = new JLabel("New label");
 		lblQuizName.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_1.add(lblQuizName);
 
 		lblCurrentQ = new JLabel("No Question Yet");
-		lblCurrentQ.setFont(new Font("Lucida Grande", Font.PLAIN, 30));
+		lblCurrentQ.setFont(new Font("Segoe UI Semilight", Font.PLAIN, 30));
 		lblCurrentQ.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_1.add(lblCurrentQ);
 
 		JPanel panel_2 = new JPanel();
 		panel_1.add(panel_2);
 		panel_2.setLayout(new GridLayout(2, 2, 0, 0));
+		panel_2.setBackground(Color.white);
 
 		lblA = new JLabel("A.");
-		lblA.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
+		lblA.setFont(new Font("Segoe UI Semilight", Font.PLAIN, 16));
 		lblA.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_2.add(lblA);
 
 		lblB = new JLabel("B.");
-		lblB.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
+		lblB.setFont(new Font("Segoe UI Semilight", Font.PLAIN, 16));
 		lblB.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_2.add(lblB);
 
 		lblC = new JLabel("C.");
-		lblC.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
+		lblC.setFont(new Font("Segoe UI Semilight", Font.PLAIN, 16));
 		lblC.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_2.add(lblC);
 
 		lblD = new JLabel("D.");
-		lblD.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
+		lblD.setFont(new Font("Segoe UI Semilight", Font.PLAIN, 16));
 		lblD.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_2.add(lblD);
 
@@ -164,13 +166,16 @@ public class ServerView extends JFrame implements MessageHandler, ActionListener
 
 		tab = new JTabbedPane();
 		getContentPane().add(tab, BorderLayout.CENTER);
+		tab.setBackground(Color.white);
 
 		scrollPane = new JScrollPane();
+		scrollPane.setBackground(Color.white);
 		tab.addTab("Leaderboard", scrollPane);
 
 		leaderboardModel = new LeaderboardModel();
 		leaderboard = new JTable(leaderboardModel);
-		leaderboard.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
+		leaderboard.setBackground(Color.white);
+		leaderboard.setFont(new Font("Segoe UI Semilight", Font.PLAIN, 20));
 		scrollPane.setViewportView(leaderboard);
 
 		qa = new QuestionAnalysis();
@@ -179,7 +184,8 @@ public class ServerView extends JFrame implements MessageHandler, ActionListener
 		JPanel settings = new JPanel();
 		tab.addTab("Game Settings", settings);
 
-		settings.setLayout(new GridLayout(1, 0, 0, 0));
+		settings.setLayout(new GridLayout(0, 1, 0, 0));
+		settings.setBackground(Color.white);
 
 		enableMusic = new JCheckBox("Enable music");
 		enableMusic.setSelected(true);
@@ -195,18 +201,19 @@ public class ServerView extends JFrame implements MessageHandler, ActionListener
 		});
 		settings.add(enableMusic);
 
-//		enableAShuffle = new JCheckBox("Shuffle answers (takes effect next question)");
-//		settings.add(enableAShuffle);
-//
-//		enableQShuffle = new JCheckBox("Shuffle questions (cannot be changed after game start)");
-//		settings.add(enableQShuffle);
+		enableAShuffle = new JCheckBox("Shuffle answers (takes effect next question)");
+		settings.add(enableAShuffle);
+
+		enableQShuffle = new JCheckBox("Shuffle questions (cannot be changed after game start)");
+		settings.add(enableQShuffle);
 
 		JPanel panel = new JPanel();
 		getContentPane().add(panel, BorderLayout.EAST);
 		panel.setLayout(new GridLayout(0, 1, 0, 0));
+		panel.setBackground(Color.white);
 
 		lblTime = new JLabel("60");
-		lblTime.setFont(new Font("Lucida Grande", Font.PLAIN, 70));
+		lblTime.setFont(new Font("Segoe UI Semilight", Font.PLAIN, 50));
 		lblTime.setHorizontalAlignment(SwingConstants.CENTER);
 		panel.add(lblTime);
 
@@ -214,24 +221,34 @@ public class ServerView extends JFrame implements MessageHandler, ActionListener
 		btnNext.setFont(new Font("Segoe UI Semilight", Font.PLAIN, 15));
 		btnNext.setForeground(new Color(46, 139, 87));
 		btnNext.setBackground(new Color(250, 250, 210));
-		btnNext.setBounds(70, 200, 150, 25);
 		panel.add(btnNext);
 		btnNext.addActionListener(this);
 
-		southPanel = new JPanel();
-		getContentPane().add(southPanel, BorderLayout.SOUTH);
-		southPanel.setLayout(new GridLayout(1, 0, 0, 0));
-
-		lblEvent = new JLabel(""); //Nothing eventful yet
-		lblEvent.setFont(new Font("Lucida Grande", Font.PLAIN, 30));
-		southPanel.add(lblEvent);
-
 		btnKickUser = new JButton("Kick User");
+		btnKickUser.setFont(new Font("Segoe UI Semilight", Font.PLAIN, 15));
+		btnKickUser.setForeground(new Color(46, 139, 87));
+		btnKickUser.setBackground(new Color(250, 250, 210));
+		panel.add(btnKickUser);
 		btnKickUser.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				kickSelectedUser();
 			}
 		});
+
+//		southPanel = new JPanel();
+//		getContentPane().add(southPanel, BorderLayout.SOUTH);
+//		southPanel.setLayout(new GridLayout(1, 0, 0, 0));
+//
+//		lblEvent = new JLabel("");	// Nothing eventful yet
+//		lblEvent.setFont(new Font("Segoe UI Semilight", Font.PLAIN, 30));
+//		southPanel.add(lblEvent);
+//
+//		btnKickUser = new JButton("Kick User");
+//		btnKickUser.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				kickSelectedUser();
+//			}
+//		});
 
 		try {
 			music = AudioSystem.getClip();
@@ -312,8 +329,8 @@ public class ServerView extends JFrame implements MessageHandler, ActionListener
 
 		loadResourceSound("Theme.wav");
 
-		//enableQShuffle.setEnabled(true);
-		southPanel.add(btnKickUser);
+		enableQShuffle.setEnabled(true);
+		//southPanel.add(btnKickUser);
 
 		// start logging
 		try {
