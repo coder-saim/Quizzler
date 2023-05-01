@@ -1,0 +1,6 @@
+May 01, 2023 4:21:29 PM frontend.ServerView startServer
+INFO: Started server with quiz: First Quiz
+May 01, 2023 4:21:50 PM frontend.ServerView addClientHandler
+INFO: aaaaa from IP /192.168.1.13 joined the game
+May 01, 2023 4:22:02 PM frontend.ServerView closeServer
+INFO: Closed server

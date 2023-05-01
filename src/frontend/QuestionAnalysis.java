@@ -7,12 +7,7 @@ import javax.swing.JPanel;
 
 import backend.Question;
 
-/**
- * Custom-drawn view for drawing graphs showing player responses
- * to questions
- * @author Ale
- *
- */
+
 public class QuestionAnalysis extends JPanel {
 
 	private static final long serialVersionUID = -4252183076285924502L;

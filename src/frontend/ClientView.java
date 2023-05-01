@@ -68,9 +68,10 @@ public class ClientView extends JFrame {
 		public DrawingView() {
 			loginPanel = new JPanel();
 			loginPanel.setBackground(Color.WHITE);
-			loginPanel.setLayout(new GridLayout(0, 1));
+			loginPanel.setLayout(new GridLayout(0, 1,0,0));
 
 			JTextField ipField = new JTextField();
+			ipField.setLocation(50,50);
 			JTextField usernameField = new JTextField();
 			JButton connectButton = new JButton("Connect");
 			JButton exitButton = new JButton("Cancel");
@@ -95,7 +96,7 @@ public class ClientView extends JFrame {
 			add(loginPanel);
 			
 			gamePanel = new JPanel();
-			gamePanel.setBackground(Color.WHITE);
+			gamePanel.setBackground(Color.blue);
 			gamePanel.setLayout(new GridLayout(2, 2, 10, 10));
 			gamePanel.setPreferredSize(new Dimension(400, 300));
 			

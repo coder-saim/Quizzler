@@ -1,19 +1,3 @@
-//Written by Alessandro Vinciguerra <alesvinciguerra@gmail.com>
-//Copyright (C) 2017  Arc676/Alessandro Vinciguerra
-
-//This program is free software: you can redistribute it and/or modify
-//it under the terms of the GNU General Public License as published by
-//the Free Software Foundation (version 3).
-
-//This program is distributed in the hope that it will be useful,
-//but WITHOUT ANY WARRANTY; without even the implied warranty of
-//MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-//GNU General Public License for more details.
-
-//You should have received a copy of the GNU General Public License
-//along with this program.  If not, see <http://www.gnu.org/licenses/>.
-//See README.txt and LICENSE.txt for more details
-
 package frontend;
 
 import java.awt.BorderLayout;
@@ -27,17 +11,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JCheckBox;
-import javax.swing.JFileChooser;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.JTextField;
+import javax.swing.*;
 
 import backend.Question;
 import backend.QuestionListModel;
@@ -83,10 +57,14 @@ public class QuizEditor extends JFrame implements ActionListener {
 	private JButton btnEditQuestion;
 	private JTextField pointsField;
 
+	private JPanel contentPane;
+
 	public QuizEditor() {
-		setTitle("Toohak Quiz Editor");
-		setBounds(100, 50, 800, 700);
+		setTitle("Quizzler Quiz Editor");
+		setBounds(500, 120, 1150, 800);
 		getContentPane().setLayout(new GridLayout(0, 1, 0, 0));
+
+		this.contentPane = (JPanel) getContentPane();
 
 		JPanel panel_9 = new JPanel();
 		getContentPane().add(panel_9);
@@ -101,6 +79,7 @@ public class QuizEditor extends JFrame implements ActionListener {
 		panel.setLayout(new GridLayout(1, 0, 0, 0));
 
 		JLabel lblQuizName = new JLabel("Quiz Name");
+		lblQuizName.setBounds(100, 100, 150, 25);
 		panel.add(lblQuizName);
 
 		nameField = new JTextField();
