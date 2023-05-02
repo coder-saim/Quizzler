@@ -25,15 +25,7 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
-import javax.swing.JButton;
-import javax.swing.JCheckBox;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTabbedPane;
-import javax.swing.JTable;
-import javax.swing.SwingConstants;
+import javax.swing.*;
 
 //import org.apache.commons.csv.CSVFormat;
 //import org.apache.commons.csv.CSVPrinter;
@@ -166,6 +158,7 @@ public class ServerView extends JFrame implements MessageHandler, ActionListener
 
 		tab = new JTabbedPane();
 		getContentPane().add(tab, BorderLayout.CENTER);
+		getContentPane().setBackground(Color.white);
 		tab.setBackground(Color.white);
 
 		scrollPane = new JScrollPane();
@@ -175,19 +168,25 @@ public class ServerView extends JFrame implements MessageHandler, ActionListener
 		leaderboardModel = new LeaderboardModel();
 		leaderboard = new JTable(leaderboardModel);
 		leaderboard.setBackground(Color.white);
-		leaderboard.setFont(new Font("Segoe UI Semilight", Font.PLAIN, 20));
+		leaderboard.setFont(new Font("Segoe UI Semilight", Font.PLAIN, 15));
 		scrollPane.setViewportView(leaderboard);
 
 		qa = new QuestionAnalysis();
 		tab.addTab("Stats", qa);
+		tab.setFont(new Font("Segoe UI Semilight", Font.PLAIN, 15));
+
 
 		JPanel settings = new JPanel();
 		tab.addTab("Game Settings", settings);
+		settings.setFont(new Font("Segoe UI Semilight", Font.PLAIN, 15));
+
 
 		settings.setLayout(new GridLayout(0, 1, 0, 0));
 		settings.setBackground(Color.white);
 
 		enableMusic = new JCheckBox("Enable music");
+		enableMusic.setFont(new Font("Segoe UI Semilight", Font.PLAIN, 15));
+
 		enableMusic.setSelected(true);
 		enableMusic.addActionListener(new ActionListener() {
 			@Override
@@ -202,9 +201,13 @@ public class ServerView extends JFrame implements MessageHandler, ActionListener
 		settings.add(enableMusic);
 
 		enableAShuffle = new JCheckBox("Shuffle answers (takes effect next question)");
+		enableAShuffle.setFont(new Font("Segoe UI Semilight", Font.PLAIN, 15));
+
 		settings.add(enableAShuffle);
 
 		enableQShuffle = new JCheckBox("Shuffle questions (cannot be changed after game start)");
+		enableQShuffle.setFont(new Font("Segoe UI Semilight", Font.PLAIN, 15));
+
 		settings.add(enableQShuffle);
 
 		JPanel panel = new JPanel();
@@ -219,36 +222,29 @@ public class ServerView extends JFrame implements MessageHandler, ActionListener
 
 		btnNext = new JButton("Begin!");
 		btnNext.setFont(new Font("Segoe UI Semilight", Font.PLAIN, 15));
-		btnNext.setForeground(new Color(46, 139, 87));
 		btnNext.setBackground(new Color(250, 250, 210));
 		panel.add(btnNext);
 		btnNext.addActionListener(this);
 
+
+
+		southPanel = new JPanel();
+		getContentPane().add(southPanel, BorderLayout.SOUTH);
+		southPanel.setLayout(new GridLayout(1, 0, 0, 0));
+
+		lblEvent = new JLabel("The Quiz is starting soon...");	// Nothing eventful yet
+		lblEvent.setFont(new Font("Segoe UI Semilight", Font.PLAIN, 17));
+		southPanel.add(lblEvent);
+
 		btnKickUser = new JButton("Kick User");
 		btnKickUser.setFont(new Font("Segoe UI Semilight", Font.PLAIN, 15));
-		btnKickUser.setForeground(new Color(46, 139, 87));
 		btnKickUser.setBackground(new Color(250, 250, 210));
-		panel.add(btnKickUser);
+
 		btnKickUser.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				kickSelectedUser();
 			}
 		});
-
-//		southPanel = new JPanel();
-//		getContentPane().add(southPanel, BorderLayout.SOUTH);
-//		southPanel.setLayout(new GridLayout(1, 0, 0, 0));
-//
-//		lblEvent = new JLabel("");	// Nothing eventful yet
-//		lblEvent.setFont(new Font("Segoe UI Semilight", Font.PLAIN, 30));
-//		southPanel.add(lblEvent);
-//
-//		btnKickUser = new JButton("Kick User");
-//		btnKickUser.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				kickSelectedUser();
-//			}
-//		});
 
 		try {
 			music = AudioSystem.getClip();
@@ -314,23 +310,37 @@ public class ServerView extends JFrame implements MessageHandler, ActionListener
 
 		quiz = givenQuiz;
 		lblQuizName.setText(quiz.quizName);
+		lblQuizName.setFont(new Font("Segoe UI Semilight", Font.PLAIN, 20));
+
 		try {
 			lblCurrentQ.setText("IP: " + InetAddress.getLocalHost().getHostAddress());
+			lblCurrentQ.setFont(new Font("Segoe UI Semilight", Font.PLAIN, 30));
+
 		} catch (UnknownHostException e) {
 			lblCurrentQ.setText("Failed to get IP address");
+			lblCurrentQ.setFont(new Font("Segoe UI Semilight", Font.PLAIN, 15));
+
 		}
 
-		lblA.setText("A");
-		lblB.setText("B");
-		lblC.setText("C");
-		lblD.setText("D");
+		lblA.setText("Option - A");
+		lblA.setFont(new Font("Segoe UI Semilight", Font.PLAIN, 15));
+
+		lblB.setText("Option - B");
+		lblB.setFont(new Font("Segoe UI Semilight", Font.PLAIN, 15));
+
+		lblC.setText("Option - C");
+		lblC.setFont(new Font("Segoe UI Semilight", Font.PLAIN, 15));
+
+		lblD.setText("Option - D");
+		lblD.setFont(new Font("Segoe UI Semilight", Font.PLAIN, 15));
+
 
 		btnNext.setText("Begin!");
 
 		loadResourceSound("Theme.wav");
 
 		enableQShuffle.setEnabled(true);
-		//southPanel.add(btnKickUser);
+		southPanel.add(btnKickUser);
 
 		// start logging
 		try {
@@ -512,14 +522,20 @@ public class ServerView extends JFrame implements MessageHandler, ActionListener
 		gameThread.start();
 
 		southPanel.remove(btnKickUser);
-
+		lblEvent.setText("The Quiz is running...");
 		leaderboardModel.initializeDeltas();
 		wasCorrect = new HashMap<String, Boolean>();
 
 		dataHeaders = new ArrayList<String>();
 		dataHeaders.add("Name");
 		clientData = new HashMap<String, List<String>>();
-		for (ClientHandler ch : clientArray) {
+
+		if(clientArray.size() == 0) {
+			JOptionPane.showMessageDialog(this, "No such participation. Please wait to others join.",
+					"Ensure Participation!", JOptionPane.ERROR_MESSAGE);
+		}
+
+			for (ClientHandler ch : clientArray) {
 			clientData.put(ch.username, new ArrayList<String>());
 		}
 
@@ -540,6 +556,7 @@ public class ServerView extends JFrame implements MessageHandler, ActionListener
 			if (timeRemaining <= 0) {
 				actionPerformed(null);
 			}
+			if(timeRemaining == -1) timeRemaining = 0;
 			lblTime.setText(Integer.toString(timeRemaining));
 		}
 	}

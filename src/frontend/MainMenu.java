@@ -56,6 +56,8 @@ public class MainMenu extends JFrame implements ActionListener {
 				return;
 			}
 			JFileChooser jfc = new JFileChooser();
+			jfc.setFont(new Font("Segoe UI Semilight", Font.PLAIN, 15));
+
 			if (jfc.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
 				try {
 					chosenQuiz = Quiz.read(jfc.getSelectedFile().getAbsolutePath());
@@ -79,7 +81,6 @@ public class MainMenu extends JFrame implements ActionListener {
 		btnQuizEditor = new JButton("Quiz Editor");
 		btnQuizEditor.addActionListener(this);
 		btnQuizEditor.setFont(new Font("Segoe UI Semilight", Font.PLAIN, 15));
-		btnQuizEditor.setForeground(new Color(46, 139, 87));
 		btnQuizEditor.setBackground(new Color(250, 250, 210));
 		btnQuizEditor.setBounds(70, 200, 150, 35);
 		contentPane.add(btnQuizEditor);
@@ -89,7 +90,6 @@ public class MainMenu extends JFrame implements ActionListener {
 		btnHostGame = new JButton("Host Game");
 		btnHostGame.addActionListener(this);
 		btnHostGame.setFont(new Font("Segoe UI Semilight", Font.PLAIN, 15));
-		btnHostGame.setForeground(new Color(46, 139, 87));
 		btnHostGame.setBackground(new Color(250, 250, 210));
 		btnHostGame.setBounds(70, 310, 150, 35);
 		contentPane.add(btnHostGame);
@@ -97,7 +97,6 @@ public class MainMenu extends JFrame implements ActionListener {
 		btnJoinGame = new JButton("Join Game");
 		btnJoinGame.addActionListener(this);
 		btnJoinGame.setFont(new Font("Segoe UI Semilight", Font.PLAIN, 15));
-		btnJoinGame.setForeground(new Color(46, 139, 87));
 		btnJoinGame.setBackground(new Color(250, 250, 210));
 		btnJoinGame.setBounds(70, 410, 150, 35);
 		contentPane.add(btnJoinGame);
@@ -105,7 +104,6 @@ public class MainMenu extends JFrame implements ActionListener {
 		btnShowAbout = new JButton("About Quizzler");
 		btnShowAbout.addActionListener(this);
 		btnShowAbout.setFont(new Font("Segoe UI Semilight", Font.PLAIN, 15));
-		btnShowAbout.setForeground(new Color(46, 139, 87));
 		btnShowAbout.setBackground(new Color(250, 250, 210));
 		btnShowAbout.setBounds(60, 510, 170, 35);
 		contentPane.add(btnShowAbout);
@@ -113,7 +111,6 @@ public class MainMenu extends JFrame implements ActionListener {
 		btnQuit = new JButton("Quit");
 		btnQuit.addActionListener(this);
 		btnQuit.setFont(new Font("Segoe UI Semilight", Font.PLAIN, 15));
-		btnQuit.setForeground(new Color(46, 139, 87));
 		btnQuit.setBackground(new Color(250, 250, 210));
 		btnQuit.setBounds(70, 610, 150, 35);
 		contentPane.add(btnQuit);
@@ -121,7 +118,7 @@ public class MainMenu extends JFrame implements ActionListener {
 
 
 		JLabel h = new JLabel("");
-		ImageIcon e  = new ImageIcon("icon/horizontal.png");
+		ImageIcon e  = new ImageIcon("icon/Quizzler.png");
 		Image f = e.getImage().getScaledInstance(1150, 100,Image.SCALE_DEFAULT);
 		ImageIcon g = new ImageIcon(f);
 		h = new JLabel(g);

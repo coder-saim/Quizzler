@@ -1,8 +1,6 @@
 package frontend;
 
-import java.awt.BorderLayout;
-import java.awt.GridLayout;
-import java.awt.Image;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.ByteArrayOutputStream;
@@ -63,6 +61,7 @@ public class QuizEditor extends JFrame implements ActionListener {
 		setTitle("Quizzler Quiz Editor");
 		setBounds(500, 120, 1150, 800);
 		getContentPane().setLayout(new GridLayout(0, 1, 0, 0));
+		setBackground(Color.white);
 
 		this.contentPane = (JPanel) getContentPane();
 
@@ -72,25 +71,31 @@ public class QuizEditor extends JFrame implements ActionListener {
 
 		JPanel panel_11 = new JPanel();
 		panel_9.add(panel_11);
-		panel_11.setLayout(new GridLayout(0, 1, 0, 0));
+		panel_11.setLayout(new GridLayout(0, 1, 0, 5));
 
 		JPanel panel = new JPanel();
 		panel_11.add(panel);
-		panel.setLayout(new GridLayout(1, 0, 0, 0));
+		panel.setLayout(new GridLayout(1, 0, 5, 0));
 
 		JLabel lblQuizName = new JLabel("Quiz Name");
 		lblQuizName.setBounds(100, 100, 150, 25);
+		lblQuizName.setFont(new Font("Segoe UI Semilight", Font.PLAIN, 15));
 		panel.add(lblQuizName);
 
 		nameField = new JTextField();
+		nameField.setFont(new Font("Segoe UI Semilight", Font.PLAIN, 15));
 		panel.add(nameField);
 		nameField.setColumns(10);
 
 		btnSave = new JButton("Save");
+		btnSave.setFont(new Font("Segoe UI Semilight", Font.PLAIN, 15));
+		btnSave.setBackground(new Color(250, 250, 210));
 		btnSave.addActionListener(this);
 		panel.add(btnSave);
 
 		btnLoad = new JButton("Load");
+		btnLoad.setFont(new Font("Segoe UI Semilight", Font.PLAIN, 15));
+		btnLoad.setBackground(new Color(250, 250, 210));
 		btnLoad.addActionListener(this);
 		panel.add(btnLoad);
 
@@ -99,9 +104,11 @@ public class QuizEditor extends JFrame implements ActionListener {
 		panel_10.setLayout(new BorderLayout(0, 0));
 
 		JLabel lblQuestion = new JLabel("Question");
+		lblQuestion.setFont(new Font("Segoe UI Semilight", Font.PLAIN, 15));
 		panel_10.add(lblQuestion, BorderLayout.WEST);
 
 		questionField = new JTextField();
+		questionField.setFont(new Font("Segoe UI Semilight", Font.PLAIN, 15));
 		panel_10.add(questionField);
 		questionField.setColumns(10);
 
@@ -109,10 +116,12 @@ public class QuizEditor extends JFrame implements ActionListener {
 		panel_11.add(panel_12);
 		panel_12.setLayout(new BorderLayout(0, 0));
 
-		JLabel lblTime = new JLabel("Time");
+		JLabel lblTime = new JLabel("Time			");
+		lblTime.setFont(new Font("Segoe UI Semilight", Font.PLAIN, 15));
 		panel_12.add(lblTime, BorderLayout.WEST);
 
 		timeField = new JTextField();
+		timeField.setFont(new Font("Segoe UI Semilight", Font.PLAIN, 15));
 		panel_12.add(timeField, BorderLayout.CENTER);
 		timeField.setColumns(10);
 
@@ -121,9 +130,11 @@ public class QuizEditor extends JFrame implements ActionListener {
 		panel_13.setLayout(new BorderLayout(0, 0));
 
 		JLabel lblPoints = new JLabel("Max Points");
+		lblPoints.setFont(new Font("Segoe UI Semilight", Font.PLAIN, 15));
 		panel_13.add(lblPoints, BorderLayout.WEST);
 
 		pointsField = new JTextField();
+		pointsField.setFont(new Font("Segoe UI Semilight", Font.PLAIN, 15));
 		panel_13.add(pointsField, BorderLayout.CENTER);
 		pointsField.setColumns(10);
 
@@ -133,13 +144,17 @@ public class QuizEditor extends JFrame implements ActionListener {
 
 		JPanel panel_img = new JPanel();
 		superpanel_img.add(panel_img);
-		panel_img.setLayout(new GridLayout(0, 1, 0, 0));
+		panel_img.setLayout(new GridLayout(0, 1, 0, 5));
 
 		btnLoadImage = new JButton("Add Image");
+		btnLoadImage.setFont(new Font("Segoe UI Semilight", Font.PLAIN, 15));
+		btnLoadImage.setBackground(new Color(250, 250, 210));
 		panel_img.add(btnLoadImage);
 		btnLoadImage.addActionListener(this);
 
 		btnClearImage = new JButton("Remove Image");
+		btnClearImage.setFont(new Font("Segoe UI Semilight", Font.PLAIN, 15));
+		btnClearImage.setBackground(new Color(250, 250, 210));
 		panel_img.add(btnClearImage);
 		btnClearImage.addActionListener(this);
 
@@ -159,10 +174,12 @@ public class QuizEditor extends JFrame implements ActionListener {
 		panel_6.add(panel_2, BorderLayout.WEST);
 		panel_2.setLayout(new GridLayout(0, 1, 0, 0));
 
-		JLabel lblA = new JLabel("A");
+		JLabel lblA = new JLabel("A. ");
+		lblA.setFont(new Font("Segoe UI Semilight", Font.PLAIN, 15));
 		panel_2.add(lblA);
 
-		JLabel lblB = new JLabel("B");
+		JLabel lblB = new JLabel("B. ");
+		lblB.setFont(new Font("Segoe UI Semilight", Font.PLAIN, 15));
 		panel_2.add(lblB);
 
 		JPanel panel_3 = new JPanel();
@@ -170,6 +187,7 @@ public class QuizEditor extends JFrame implements ActionListener {
 		panel_3.setLayout(new GridLayout(0, 1, 0, 0));
 
 		ansA = new JTextField();
+		ansA.setFont(new Font("Segoe UI Semilight", Font.PLAIN, 15));
 		panel_3.add(ansA);
 		ansA.setColumns(10);
 
@@ -184,6 +202,7 @@ public class QuizEditor extends JFrame implements ActionListener {
 		panel_6.add(panel_ab, BorderLayout.EAST);
 
 		ansB = new JTextField();
+		ansB.setFont(new Font("Segoe UI Semilight", Font.PLAIN, 15));
 		panel_3.add(ansB);
 		ansB.setColumns(10);
 
@@ -195,10 +214,12 @@ public class QuizEditor extends JFrame implements ActionListener {
 		panel_7.add(panel_4, BorderLayout.WEST);
 		panel_4.setLayout(new GridLayout(0, 1, 0, 0));
 
-		JLabel lblC = new JLabel("C");
+		JLabel lblC = new JLabel("C. ");
+		lblC.setFont(new Font("Segoe UI Semilight", Font.PLAIN, 15));
 		panel_4.add(lblC);
 
-		JLabel lblD = new JLabel("D");
+		JLabel lblD = new JLabel("D. ");
+		lblD.setFont(new Font("Segoe UI Semilight", Font.PLAIN, 15));
 		panel_4.add(lblD);
 
 		JPanel panel_5 = new JPanel();
@@ -206,10 +227,12 @@ public class QuizEditor extends JFrame implements ActionListener {
 		panel_5.setLayout(new GridLayout(0, 1, 0, 0));
 
 		ansC = new JTextField();
+		ansC.setFont(new Font("Segoe UI Semilight", Font.PLAIN, 15));
 		panel_5.add(ansC);
 		ansC.setColumns(10);
 
 		ansD = new JTextField();
+		ansD.setFont(new Font("Segoe UI Semilight", Font.PLAIN, 15));
 		panel_5.add(ansD);
 		ansD.setColumns(10);
 
@@ -225,17 +248,23 @@ public class QuizEditor extends JFrame implements ActionListener {
 
 		JPanel panel_8 = new JPanel();
 		panel_1.add(panel_8);
-		panel_8.setLayout(new GridLayout(0, 1, 0, 0));
+		panel_8.setLayout(new GridLayout(0, 1, 0, 10));
 
 		btnAddQuestion = new JButton("Add Question");
+		btnAddQuestion.setFont(new Font("Segoe UI Semilight", Font.PLAIN, 15));
+		btnAddQuestion.setBackground(new Color(250, 250, 210));
 		btnAddQuestion.addActionListener(this);
 		panel_8.add(btnAddQuestion);
 
 		btnRemoveQuestion = new JButton("Delete Selected Question");
+		btnRemoveQuestion.setFont(new Font("Segoe UI Semilight", Font.PLAIN, 15));
+		btnRemoveQuestion.setBackground(new Color(250, 250, 210));
 		btnRemoveQuestion.addActionListener(this);
 		panel_8.add(btnRemoveQuestion);
 
 		btnEditQuestion = new JButton("Edit Selected Question");
+		btnEditQuestion.setFont(new Font("Segoe UI Semilight", Font.PLAIN, 15));
+		btnEditQuestion.setBackground(new Color(250, 250, 210));
 		btnEditQuestion.addActionListener(this);
 		panel_8.add(btnEditQuestion);
 

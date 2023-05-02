@@ -75,13 +75,11 @@ public class ClientView extends JFrame {
 
 			JButton connectButton = new JButton("Connect");
 			connectButton.setFont(new Font("Segoe UI Semilight", Font.PLAIN, 15));
-			connectButton.setForeground(new Color(46, 139, 87));
 			connectButton.setBackground(new Color(250, 250, 210));
 
 
 			JButton exitButton = new JButton("Cancel");
 			exitButton.setFont(new Font("Segoe UI Semilight", Font.PLAIN, 15));
-			exitButton.setForeground(new Color(46, 139, 87));
 			exitButton.setBackground(new Color(250, 250, 210));
 
 			JLabel ipAddrs = new JLabel("IP Address");
