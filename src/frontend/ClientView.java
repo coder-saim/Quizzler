@@ -118,16 +118,16 @@ public class ClientView extends JFrame {
 
 
 			ansA = new JLabel();
-			ansA.setBackground(Color.RED);
+			ansA.setBackground(new Color(255, 102, 102));
 
 			ansB = new JLabel();
-			ansB.setBackground(Color.BLUE);
+			ansB.setBackground(new Color(102, 102, 255));
 
 			ansC = new JLabel();
-			ansC.setBackground(Color.YELLOW);
+			ansC.setBackground(new Color(255, 255, 179));
 
 			ansD = new JLabel();
-			ansD.setBackground(Color.ORANGE);
+			ansD.setBackground(new Color(255, 191, 128));
 
 			for (JLabel lbl : new JLabel[]{ ansA, ansB, ansC, ansD }) {
 				lbl.setBorder(new EmptyBorder(10, 10, 10, 10));

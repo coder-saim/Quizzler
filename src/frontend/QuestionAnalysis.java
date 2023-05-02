@@ -41,16 +41,16 @@ public class QuestionAnalysis extends JPanel {
 			}
 		}
 		
-		g.setColor(Color.RED);
+		g.setColor(new Color(255, 102, 102));
 		g.fillRect(200, 120, 300 * answerCount[0] / maxCount, 15);
 		
-		g.setColor(Color.BLUE);
+		g.setColor(new Color(102, 102, 255));
 		g.fillRect(200, 140, 300 * answerCount[1] / maxCount, 15);
 		
-		g.setColor(Color.GREEN);
+		g.setColor(new Color(255, 255, 179));
 		g.fillRect(200, 160, 300 * answerCount[2] / maxCount, 15);
 		
-		g.setColor(Color.ORANGE);
+		g.setColor(new Color(255, 191, 128));
 		g.fillRect(200, 180, 300 * answerCount[3] / maxCount, 15);
 		
 		g.setColor(Color.BLACK);
