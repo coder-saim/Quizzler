@@ -126,23 +126,6 @@ public class MainMenu extends JFrame implements ActionListener {
 		contentPane.add(h);
 
 
-//		JLabel v = new JLabel("");
-//		ImageIcon a  = new ImageIcon("icon/vertical.png");
-//		Image b = a.getImage().getScaledInstance(300, 680,Image.SCALE_DEFAULT);
-//		ImageIcon c = new ImageIcon(b);
-//		v = new JLabel(c);
-//		v.setBounds(0, 100, 300, 680);
-//		contentPane.add(v);
-//
-//
-//		JLabel j = new JLabel("");
-//        ImageIcon x  = new ImageIcon("icon/Library.gif");
-//        Image y = x.getImage().getScaledInstance(550, 550,Image.SCALE_DEFAULT);
-//        ImageIcon z = new ImageIcon(y);
-//        j = new JLabel(z);
-//        contentPane.add(j);
-
-
 	}
 
 }
