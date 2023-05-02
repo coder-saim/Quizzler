@@ -187,7 +187,7 @@ public class ServerView extends JFrame implements MessageHandler, ActionListener
 		enableMusic = new JCheckBox("Enable music");
 		enableMusic.setFont(new Font("Segoe UI Semilight", Font.PLAIN, 15));
 
-		enableMusic.setSelected(true);
+		enableMusic.setSelected(false);				// to enable or disable...
 		enableMusic.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -337,7 +337,7 @@ public class ServerView extends JFrame implements MessageHandler, ActionListener
 
 		btnNext.setText("Begin!");
 
-		loadResourceSound("Theme.wav");
+		loadResourceSound("Theme.wav");	// to disable music....
 
 		enableQShuffle.setEnabled(true);
 		southPanel.add(btnKickUser);

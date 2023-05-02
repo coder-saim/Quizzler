@@ -274,6 +274,8 @@ public class QuizEditor extends JFrame implements ActionListener {
 		getContentPane().add(scrollPane);
 		questionList = new JTable(qlistModel);
 		scrollPane.setViewportView(questionList);
+		scrollPane.setFont(new Font("Segoe UI Semilight", Font.PLAIN, 15));
+
 	}
 
 	@Override
