@@ -185,7 +185,7 @@ public class ClientView extends JFrame {
 			// if game is over, offer a back button
 			case GAME_OVER:
 				gamePanel.setVisible(false);
-				g.drawString("Back to Main", 300, 80);
+				g.drawString("Quiz has been finished.", 275, 150);
 				//drawRect(g, backToMainButton, false);
 				break;
 			// draw answers if server is waiting for them

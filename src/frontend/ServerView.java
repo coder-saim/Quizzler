@@ -203,12 +203,12 @@ public class ServerView extends JFrame implements MessageHandler, ActionListener
 		enableAShuffle = new JCheckBox("Shuffle answers (takes effect next question)");
 		enableAShuffle.setFont(new Font("Segoe UI Semilight", Font.PLAIN, 15));
 
-		settings.add(enableAShuffle);
+		//settings.add(enableAShuffle);
 
 		enableQShuffle = new JCheckBox("Shuffle questions (cannot be changed after game start)");
 		enableQShuffle.setFont(new Font("Segoe UI Semilight", Font.PLAIN, 15));
 
-		settings.add(enableQShuffle);
+		//settings.add(enableQShuffle);
 
 		JPanel panel = new JPanel();
 		getContentPane().add(panel, BorderLayout.EAST);
