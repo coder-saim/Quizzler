@@ -29,11 +29,7 @@ public class Quiz implements Serializable {
 		return questionList;
 	}
 	
-	/**
-	 * Shuffle the questions in the quiz such
-	 * that they don't appear in the same order
-	 * in which they were saved
-	 */
+
 	public void shuffleQuestions() {
 		for (int i = questionList.size() - 1; i > 0; i--) {
 			int idx = Quiz.rgen.nextInt(i + 1);
@@ -46,10 +42,7 @@ public class Quiz implements Serializable {
 		}
 	}
 	
-	/**
-	 * Gets the next question in the quiz
-	 * @return The next question, or null if there aren't any left
-	 */
+
 	public Question nextQuestion() {
 		if (currentQuestion == questionList.size()) {
 			return null;
@@ -57,13 +50,7 @@ public class Quiz implements Serializable {
 		return questionList.get(currentQuestion++);
 	}
 	
-	/**
-	 * Read a quiz from file
-	 * @param filename Desired input filename
-	 * @return Quiz object read from file
-	 * @throws IOException
-	 * @throws ClassNotFoundException
-	 */
+
 	public static Quiz read(String filename) throws IOException, ClassNotFoundException {
 		FileInputStream fis = new FileInputStream(filename);
 		ObjectInputStream ois = new ObjectInputStream(fis);
@@ -73,11 +60,7 @@ public class Quiz implements Serializable {
 		return q;
 	}
 	
-	/**
-	 * Write a quiz to a file
-	 * @param filename Desired output filename
-	 * @throws IOException
-	 */
+
 	public void save(String filename) throws IOException {
 		FileOutputStream fos = new FileOutputStream(filename);
 		ObjectOutputStream oos = new ObjectOutputStream(fos);

@@ -22,15 +22,7 @@ public class Question implements Serializable {
 	
 	private Map<String, Object> multimediaData;
 	
-	/**
-	 * Create a new question
-	 * @param question Human-readable question
-	 * @param time Seconds available to answer
-	 * @param points Maximum points obtainable by answering
-	 * @param ans Possible answers
-	 * @param okAns Acceptable answers as a boolean list corresponding to the answer list
-	 * @throws IOException if ImageIO fails to save image as byte array
-	 */
+
 	public Question(String question, int time, int points, ArrayList<String> ans, boolean[] okAns) throws IOException {
 		this.question = question;
 		this.points = points;
@@ -48,11 +40,7 @@ public class Question implements Serializable {
 		multimediaData.put(key, obj);
 	}
 	
-	/**
-	 * Create a copy of the question without the correct answers to
-	 * send to the clients and prevent cheating with modified clients
-	 * @return A copy of the question without the correct answer
-	 */
+
 	public Question getSendableCopy() {
 		try {
 			Question q = new Question(question, timeLimit, points, answers, new boolean[] {});
@@ -65,11 +53,7 @@ public class Question implements Serializable {
 		}
 	}
 	
-	/**
-	 * Shuffle the answers such that they
-	 * don't appear in the same order in which
-	 * they are saved
-	 */
+
 	public void shuffleAnswers() {
 		for (int i = 3; i > 0; i--) {
 			int idx = Quiz.rgen.nextInt(i + 1);
@@ -87,11 +71,7 @@ public class Question implements Serializable {
 		}
 	}
 	
-	/**
-	 * Determines whether a given answer is acceptable
-	 * @param ans Answer number
-	 * @return Whether the answer is acceptable
-	 */
+
 	public boolean acceptAnswer(int ans) {
 		return acceptableAnswers[ans];
 	}

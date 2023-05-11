@@ -18,11 +18,7 @@ public class ClientHandler {
 	
 	private String ipAddress;
 
-	/**
-	 * Create a new client handler
-	 * @param clientSocket Socket over which client is connected
-	 * @param server Associated ServerView
-	 */
+
 	public ClientHandler(Socket clientSocket, ServerView server) {
 		try {
 			sock = clientSocket;
@@ -41,10 +37,7 @@ public class ClientHandler {
 		return ipAddress;
 	}
 
-	/**
-	 * Send an object to the connected client
-	 * @param obj Relevant object
-	 */
+
 	public void send(Object obj) {
 		try {
 			oout.reset();

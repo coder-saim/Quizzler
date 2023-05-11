@@ -414,11 +414,7 @@ public class QuizEditor extends JFrame implements ActionListener {
 		}
 	}
 	
-	/**
-	 * Load the specified image into the panel
-	 * for previewing
-	 * @param file File of the image
-	 */
+
 	private void loadImage(File file) {
 		imagePanel.removeAll();
 		if (file != null) {

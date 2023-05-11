@@ -15,11 +15,7 @@ public class QuestionAnalysis extends JPanel {
 	private Question question;
 	private int answerCount[];
 	
-	/**
-	 * Load new data to plot a new graph
-	 * @param q Relevant question
-	 * @param answers How many times each answer was chosen
-	 */
+
 	public void loadData(Question q, int[] answers) {
 		question = q;
 		answerCount = answers;

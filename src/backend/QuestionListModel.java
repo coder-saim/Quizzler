@@ -15,9 +15,7 @@ public class QuestionListModel extends AbstractTableModel {
 		questions = new ArrayList<Question>();
 	}
 
-	/**
-	 * Tells the table that new data is available
-	 */
+
 	public void updateData() {
 		fireTableDataChanged();
 	}

@@ -142,28 +142,13 @@ public class ClientView extends JFrame {
 			addMouseListener(this);
 		}
 
-		/**
-		 * Show or hide the Swing UI for inputting server data rather
-		 * than the game UI
-		 * 
-		 * @param show
-		 *            Show server data UI rather than game UI
-		 */
+
 		private void showUI(boolean show) {
 			loginPanel.setVisible(show);
 			gamePanel.setVisible(!show);
 		}
 
-		/**
-		 * Draw a rectangle given a Rectangle object
-		 * 
-		 * @param g
-		 *            Graphics context in which the rectangle should be drawn
-		 * @param rect
-		 *            Rectangle object
-		 * @param fill
-		 *            Fill the rectangle?
-		 */
+
 		private void drawRect(Graphics g, Rectangle rect, boolean fill) {
 			if (fill) {
 				g.fillRect(rect.x, rect.y, rect.width, rect.height);
@@ -244,13 +229,7 @@ public class ClientView extends JFrame {
 			}
 		}
 
-		/**
-		 * Convert position to human-readable ordinal number
-		 * 
-		 * @param pos
-		 *            Position as integer
-		 * @return Ordinal number as string
-		 */
+
 		private String posToString(int pos) {
 			switch (pos) {
 			case 1:
@@ -397,17 +376,7 @@ public class ClientView extends JFrame {
 		setContentPane(drawView);
 	}
 
-	/**
-	 * Connect to game
-	 * 
-	 * @param uname
-	 *            Desired nickname
-	 * @param host
-	 *            Host address
-	 * @param port
-	 *            Post on which game is hosted
-	 * @return
-	 */
+
 	private boolean connect(String uname, String host, int port) {
 		username = uname;
 		this.host = host;
@@ -431,12 +400,7 @@ public class ClientView extends JFrame {
 		main.showView(View.MAIN_MENU);
 	}
 
-	/**
-	 * Send object to server
-	 * 
-	 * @param o
-	 *            Relevant object
-	 */
+
 	private void sendToServer(Object o) {
 		try {
 			oout.reset();

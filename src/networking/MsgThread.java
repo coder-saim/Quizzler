@@ -13,12 +13,7 @@ public class MsgThread extends Thread {
 	private MessageHandler receiver;
 	private String username;
 
-	/**
-	 * Create a new MsgThread
-	 * @param oin Input stream from which data can be read from the other end
-	 * @param username Identifier for the other end
-	 * @param receiver Handler for the messages
-	 */
+
 	public MsgThread(ObjectInputStream oin, String username, MessageHandler receiver) {
 		this.oin = oin;
 		this.username = username;
